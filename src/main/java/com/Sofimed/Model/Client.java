@@ -43,7 +43,47 @@ public class Client {
 
     @Column(name = "client_code", unique = true)
     private String clientCode;
+    
+    private String email;
+    
+    
+  
 
+        @Column(name = "order_count")
+        private Integer orderCount = 0;
+
+        @Column(name = "last_order_date")
+        private LocalDateTime lastOrderDate;
+
+        // ... existing code ...
+
+        public Integer getOrderCount() {
+            return orderCount != null ? orderCount : 0;
+        }
+
+        public void setOrderCount(Integer orderCount) {
+            this.orderCount = orderCount;
+        }
+
+        public LocalDateTime getLastOrderDate() {
+            return lastOrderDate;
+        }
+
+        public void setLastOrderDate(LocalDateTime lastOrderDate) {
+            this.lastOrderDate = lastOrderDate;
+        }
+
+        public void incrementOrderCount() {
+            this.orderCount = getOrderCount() + 1;
+            this.lastOrderDate = LocalDateTime.now();
+        }
+        
+        
+        public String getEmail() {
+            return email;
+        }
+
+  
     // Getters
     public Long getId() {
         return id;
@@ -143,4 +183,6 @@ public class Client {
         clientCode = "CLI-" + LocalDateTime.now().getYear() + 
                     "-" + String.format("%03d", id);
     }
+
+	
 }

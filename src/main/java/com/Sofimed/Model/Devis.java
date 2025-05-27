@@ -136,4 +136,11 @@ public class Devis {
         createdAt = LocalDateTime.now(); 
         status = DevisStatus.EN_ATTENTE; 
     }
+
+	public BigDecimal getTotale() {
+		// TODO Auto-generated method stub
+		return totale;
+	}
+
+	
 }

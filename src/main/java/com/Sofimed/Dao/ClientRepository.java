@@ -1,9 +1,13 @@
 package com.Sofimed.Dao;
 
 import com.Sofimed.Model.Client;
+import com.Sofimed.Model.Devis;
+import com.Sofimed.Model.User;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -15,5 +19,8 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
     default Client findByIdOrThrow(Long id) {
         return findById(id).orElseThrow(() -> new IllegalArgumentException("Client avec ID " + id + " introuvable"));
     }
+    Optional<Client> findByUser(User user);
+
+    
     
 }

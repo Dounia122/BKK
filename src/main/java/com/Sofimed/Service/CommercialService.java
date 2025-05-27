@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.HashMap;
 
 @Service
@@ -100,5 +101,10 @@ public class CommercialService {
         // Trouver un commercial disponible pour ce département
         return commercialRepository.findFirstByDepartement(majorityDepartment)
             .orElse(null);
+    }
+
+    
+    public Optional<Commercial> findByUserId(Long userId) {
+        return commercialRepository.findByUserId(userId);
     }
 }

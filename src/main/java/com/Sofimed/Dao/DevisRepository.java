@@ -23,9 +23,13 @@ public interface DevisRepository extends JpaRepository<Devis, Long> {
     @Query("SELECT d FROM Devis d JOIN d.cart c WHERE c.clientId = :clientId ORDER BY d.createdAt DESC")
     List<Devis> findByClientId(@Param("clientId") Long clientId);
     
+    List<Devis> findByCartId(Long cartId);
+    
     /**
      * Compte le nombre total de devis pour la génération de références
      */
+    
+    
     @Query("SELECT COUNT(d) FROM Devis d")
     long count();
     List<Devis> findByCommercialId(Long commercialId);

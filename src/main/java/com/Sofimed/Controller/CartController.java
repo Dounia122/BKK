@@ -172,7 +172,18 @@ public class CartController {
             return ResponseEntity.status(500).build();
         }
     }
-    
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Cart>> getCartByUserId(@PathVariable Long userId) {
+        try {
+            List<Cart> carts = cartrepo.findByClientId(userId);
+            if (carts.isEmpty()) {
+                return ResponseEntity.noContent().build();
+            }
+            return ResponseEntity.ok(carts);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
 
     // ... existing code ...
 }

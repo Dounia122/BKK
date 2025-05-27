@@ -38,6 +38,9 @@ public class Commercial {
     @Column(name = "employee_code", unique = true)
     private String employeeCode;
     
+    @Column(name = "image_url")
+    private String imageUrl;
+    
     
     @ManyToOne
     @JoinColumn(name = "departement_id")
@@ -61,6 +64,9 @@ public class Commercial {
     public Departement getDepartement() {
         return departement;
     }
+    
+   
+
 
     public void setDepartement(Departement departement) {
         this.departement = departement;
@@ -81,6 +87,8 @@ public class Commercial {
     public String getFirstName() {
         return firstName;
     }
+    
+   
 
     public String getLastName() {
         return lastName;

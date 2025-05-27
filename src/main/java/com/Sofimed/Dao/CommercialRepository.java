@@ -1,17 +1,26 @@
 package com.Sofimed.Dao;
 
-
-
 import com.Sofimed.Model.Commercial;
 import com.Sofimed.Model.Departement;
+
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-import java.util.List;
+
+
+
 
 @Repository
 public interface CommercialRepository extends JpaRepository<Commercial, Long> {
+    
+    @Query("SELECT c FROM Commercial c WHERE c.departement.nom = :departementNom")
+    Commercial findFirstByDepartementNom(@Param("departementNom") String departementNom);
+    
     // Trouver un commercial par département
     Optional<Commercial> findFirstByDepartement(Departement departement);
     
@@ -26,4 +35,7 @@ public interface CommercialRepository extends JpaRepository<Commercial, Long> {
     
     // Vérifier si un code employé existe déjà
     boolean existsByEmployeeCode(String employeeCode);
+
+
+    
 }

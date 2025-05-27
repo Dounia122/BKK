@@ -14,9 +14,9 @@ import java.util.Optional;
 public interface CartRepository extends JpaRepository<Cart, Long> {
     
     // ... existing code ...
-    
+	
    
-    
+	
     
     Cart findByClientIdAndStatus(Long clientId, Cart.CartStatus status);
     List<Cart> findByClientId(Long clientId);

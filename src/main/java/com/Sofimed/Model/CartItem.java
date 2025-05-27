@@ -22,6 +22,64 @@ public class CartItem {
 
     @Column
     private Double prix;
+    
+    @Column(name = "prix_unitaire")
+    private Double prixUnitaire;
+    
+    @Column(name = "remise_pourcentage")
+    private Double remisePourcentage;
+    
+    @Column(name = "remise_montant")
+    private Double remiseMontant;
+    
+    @Column(name = "prix_apres_remise")
+    private Double prixApresRemise;
+    
+    @Column(name = "total_item")
+    private Double totalItem;
+    
+    
+ // Getters
+    public Double getPrixUnitaire() {
+        return prixUnitaire;
+    }
+    
+    public Double getRemisePourcentage() {
+        return remisePourcentage;
+    }
+    
+    public Double getRemiseMontant() {
+        return remiseMontant;
+    }
+    
+    public Double getPrixApresRemise() {
+        return prixApresRemise;
+    }
+    
+    public Double getTotalItem() {
+        return totalItem;
+    }
+    
+    // Setters
+    public void setPrixUnitaire(Double prixUnitaire) {
+        this.prixUnitaire = prixUnitaire;
+    }
+    
+    public void setRemisePourcentage(Double remisePourcentage) {
+        this.remisePourcentage = remisePourcentage;
+    }
+    
+    public void setRemiseMontant(Double remiseMontant) {
+        this.remiseMontant = remiseMontant;
+    }
+    
+    public void setPrixApresRemise(Double prixApresRemise) {
+        this.prixApresRemise = prixApresRemise;
+    }
+    
+    public void setTotalItem(Double totalItem) {
+        this.totalItem = totalItem;
+    }
 
     // Constructeur par défaut
     public CartItem() {}

@@ -54,7 +54,9 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
       .cors(cors -> cors.configurationSource(corsConfigurationSource()))
       .authorizeHttpRequests(auth -> auth
           .requestMatchers("/api/**").permitAll()
-          .requestMatchers("/assets/**").permitAll() // Add this line to allow access to static files
+          .requestMatchers("/assets/**").permitAll()
+          .requestMatchers("/uploads/**").permitAll()
+          // Add this line to allow access to static files
           .anyRequest().authenticated()
       )
       .sessionManagement(session -> 
